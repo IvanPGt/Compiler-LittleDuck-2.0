@@ -6,6 +6,14 @@ class Compilador {
     public ArrayList<String> dirFunc = new ArrayList<>();
     public boolean isLocalVar = false;
 
+    public CuboSemantico cuboSemantico = new CuboSemantico();
+    public ArrayList<Quad> quads = new ArrayList<>();
+
+    public Stack<String> PilaO = new Stack<>();
+    public Stack<String> PilaT = new Stack<>();
+    public Stack<String> POper = new Stack<>();
+    public int dir = 0;
+
     public void add_DirFunc(String ID) {
         if ( dirFunc.contains(ID) ) {
             System.err.println("ERROR: Double definition for function: "+ID );
@@ -15,10 +23,10 @@ class Compilador {
         System.out.println("\n\nFUNCION: "+ID+"\n");
     }
 
-    public void imprimir(String str) {
-        System.out.println(str);
+
+    public void imprimir_quads() {
+        System.out.println(quads);
     }
-    
 
     public void validar_def_vars(ArrayList<String> pendigIds, String type) {
 
@@ -26,10 +34,12 @@ class Compilador {
             Variable _tupla = new Variable(pendigIds.get(i), type);
             if ( globalVar.contains(_tupla) ) {
                 System.err.println("ERROR: Double definition for global variable: "+pendigIds.get(i) );
+            } else {
+                globalVar.add(_tupla);
+                System.out.println("Variable global: "+pendigIds.get(i)+" Tipo: "+type+"\n");
             }
 
-            globalVar.add(_tupla);
-            System.out.println("Variable global: "+pendigIds.get(i)+" Tipo: "+type+"\n");
+            
             
         }
 
@@ -42,10 +52,10 @@ class Compilador {
 
             if ( localVar.contains(_tupla) || globalVar.contains(_tupla) ) {
                 System.err.println("ERROR: Double definition for local variable: "+pendigIds.get(i) );
+            } else {
+                localVar.add(_tupla);
+                System.out.println("Variable funcion: "+pendigIds.get(i)+" Tipo: "+type+"\n");
             }
-
-            localVar.add(_tupla);
-            System.out.println("Variable funcion: "+pendigIds.get(i)+" Tipo: "+type+"\n");
 
         }
 
@@ -57,10 +67,10 @@ class Compilador {
 
         if ( localVar.contains(_tupla) || globalVar.contains(_tupla) ) {
             System.err.println("ERROR: Double definition for local variable parameter: "+ID );
+        } else {
+            localVar.add(_tupla);
+            System.out.println("Parametro funcion: "+ID+" Tipo: "+type+"\n");
         }
-
-        localVar.add(_tupla);
-        System.out.println("Parametro funcion: "+ID+" Tipo: "+type+"\n");
 
     }
 

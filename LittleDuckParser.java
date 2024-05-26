@@ -151,7 +151,7 @@ public class LittleDuckParser extends Parser {
 			match(T__0);
 			setState(81);
 			((ProgramaContext)_localctx).ID = match(ID);
-			((ProgramaContext)getInvokingContext(0)).comp.add_DirFunc((((ProgramaContext)_localctx).ID!=null?((ProgramaContext)_localctx).ID.getText():null)); ((ProgramaContext)getInvokingContext(0)).comp.imprimir("HOLA ESTO SI JALA");
+			 ((ProgramaContext)getInvokingContext(0)).comp.add_DirFunc((((ProgramaContext)_localctx).ID!=null?((ProgramaContext)_localctx).ID.getText():null)); 
 			setState(83);
 			match(T__1);
 			setState(84);
@@ -1764,9 +1764,7 @@ public class LittleDuckParser extends Parser {
 				{
 				setState(230);
 				((Factor_cteContext)_localctx).ID = match(ID);
-
-
-				        if(((ProgramaContext)getInvokingContext(0)).comp.isLocalVar) {
+				 if(((ProgramaContext)getInvokingContext(0)).comp.isLocalVar) {
 				            ((ProgramaContext)getInvokingContext(0)).comp.validar_ID_locales((((Factor_cteContext)_localctx).ID!=null?((Factor_cteContext)_localctx).ID.getText():null), ((FuncsContext)getInvokingContext(8)).localVar);
 				        } else {
 				            ((ProgramaContext)getInvokingContext(0)).comp.validar_ID((((Factor_cteContext)_localctx).ID!=null?((Factor_cteContext)_localctx).ID.getText():null));
@@ -2042,11 +2040,7 @@ public class LittleDuckParser extends Parser {
 			{
 			setState(258);
 			((F_callContext)_localctx).ID = match(ID);
-
-			        if ( !((ProgramaContext)getInvokingContext(0)).comp.dirFunc.contains((((F_callContext)_localctx).ID!=null?((F_callContext)_localctx).ID.getText():null)) ) {
-			            System.err.println("ERROR: Function "+(((F_callContext)_localctx).ID!=null?((F_callContext)_localctx).ID.getText():null)+" not exist" );
-			        }
-			        
+			 ((ProgramaContext)getInvokingContext(0)).comp.validar_func((((F_callContext)_localctx).ID!=null?((F_callContext)_localctx).ID.getText():null)); 
 			setState(260);
 			match(T__10);
 			setState(261);
