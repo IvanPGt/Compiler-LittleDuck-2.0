@@ -1,0 +1,28 @@
+program test01;
+
+var _var01: int;var02, Var03, _var04: float;
+
+void _func01() [{}];
+
+void func02(_arg01: int, arg02: int, Arg03: float) [
+    var _funcVar01: int;funcVar02, FuncVar03, _funcVar04: float;
+    {
+        _var01 = 1;
+	var02 = -Var03;
+	if(_var04 > +2){
+	    do{ _func01(_var01 * -var02, 3); } while ( _arg01 != -4.5);
+    	} else { print("jala",Arg03); } ;
+    }
+	
+];
+
+main {
+    func02(10, _var04, 11.99);
+}
+
+end
+
+
+
+
+
