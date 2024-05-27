@@ -120,8 +120,8 @@ factor_cte
     |   cte
     ;
 cte
-    :   CTE_INT  { $programa::comp.do_push_CTE($CTE_INT.int, 0); }
-    |   CTE_FLOAT  { $programa::comp.do_push_CTE(Float.parseFloat($CTE_FLOAT.text), 1); }
+    :   CTE_INT  { $programa::comp.do_push_CTE_int($CTE_INT.int, 0); }
+    |   CTE_FLOAT  { $programa::comp.do_push_CTE_float(Float.parseFloat($CTE_FLOAT.text), 1); }
     ;
 condition locals [ int exp_type ]
     :   'if' '(' expresion ')' {$condition::exp_type = $programa::comp.PilaT.pop(); $programa::comp.add_quad_if($condition::exp_type); } body condition_else ';' { $programa::comp.fill_quad_if($condition::exp_type); } ;
@@ -144,7 +144,7 @@ md_f_call_
 print
     :   'print''(' md_print ')' ';';
 md_print
-    :   CTE_STRING { $programa::comp.do_push_CTE($CTE_STRING.text, 2); $programa::comp.add_quad_top_pila(); } md_print_
+    :   CTE_STRING { $programa::comp.do_push_CTE_string($CTE_STRING.text, 2); $programa::comp.add_quad_top_pila(); } md_print_
     |   expresion { $programa::comp.add_quad_top_pila(); } md_print_
     ;
 md_print_

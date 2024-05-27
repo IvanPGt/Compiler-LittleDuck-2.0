@@ -19,9 +19,14 @@ class Compilador {
 
     public Stack<Integer> PJumps = new Stack<>();
 
-    public ArrayList<Cte> ctes = new ArrayList<>();
+    public ArrayList<Integer> ctes_int = new ArrayList<>();
+    public ArrayList<Float> ctes_float = new ArrayList<>();
+    public ArrayList<String> ctes_string = new ArrayList<>();
+    public int dir_int_cte = 0;
+    public int dir_float_cte= 0;
+    public int dir_string_cte = 0;
 
-    public Object[] memoria;
+    public Memoria memoria;
 
     public int dir_int = 0;
     public int dir_float= 0;
@@ -34,25 +39,67 @@ class Compilador {
         int assigned_dir;
         switch (type) {
             case 0:
+                if (dir_int > 10000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
                 assigned_dir = dir_int;
                 dir_int++;
                 return assigned_dir;
             case 1:
+                if (dir_float > 20000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
                 assigned_dir = dir_float + 10000;
                 dir_float++;
                 return assigned_dir;
             case 2:
+                if (dir_string > 30000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
                 assigned_dir = dir_string + 20000;
                 dir_string++;
                 return assigned_dir;
             case 3:
+                if (dir_bool > 40000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
                 assigned_dir = dir_bool + 30000;
                 dir_bool++;
+                return assigned_dir;
+             case 4:
+                if (dir_int_cte > 50000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
+                assigned_dir = dir_int_cte + 40000;
+                dir_int_cte++;
+                return assigned_dir;
+            case 5:
+                if (dir_float_cte > 60000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
+                assigned_dir = dir_float_cte + 50000;
+                dir_float_cte++;
+                return assigned_dir;
+            case 6:
+                if (dir_string_cte > 70000) {
+                    System.err.println("ERROR: No more memory for variables" );
+                    break;
+                }
+                assigned_dir = dir_string_cte + 60000;
+                dir_string_cte++;
                 return assigned_dir;
             default:
                 throw new AssertionError();
         }
+        return 0;
     }
+
 
     public void add_DirFunc(String ID) {
         if ( dirFunc.contains(ID) ) {
@@ -66,14 +113,17 @@ class Compilador {
 
     public void imprimir_quads() {
         System.out.println(quads);
-        System.out.println(dir);
+        System.out.println(quads.size());
+
     }
 
     public void validar_def_vars_globales(ArrayList<String> pendigIds, String type) {
 
         for(int i = 0; i < pendigIds.size(); i++){
-            Variable _tupla = new Variable(pendigIds.get(i), type, dir);
-            dir++;
+            
+            Variable _tupla = new Variable(pendigIds.get(i), type, assign_dir(cuboSemantico.getTipoId(type)));
+
+            
             if ( globalVar.contains(_tupla) ) {
                 System.err.println("ERROR: Double definition for global variable: "+pendigIds.get(i) );
             } else {
@@ -88,8 +138,8 @@ class Compilador {
     public void validar_def_vars_locales(ArrayList<String> pendigIds, String type) {
   
         for(int i = 0; i < pendigIds.size(); i++){
-            Variable _tupla = new Variable(pendigIds.get(i), type, dir);
-            dir++;
+            Variable _tupla = new Variable(pendigIds.get(i), type, assign_dir(cuboSemantico.getTipoId(type)));
+
 
             if ( localVar.contains(_tupla) || globalVar.contains(_tupla) ) {
                 System.err.println("ERROR: Double definition for local variable: "+pendigIds.get(i) );
@@ -112,8 +162,7 @@ class Compilador {
 
     public void validar_def_parametros(String ID, String type) {
   
-        Variable _tupla = new Variable(ID, type, dir);
-        dir++;
+        Variable _tupla = new Variable(ID, type, assign_dir(cuboSemantico.getTipoId(type)));
 
         if ( localVar.contains(_tupla) || globalVar.contains(_tupla) ) {
             System.err.println("ERROR: Double definition for local variable parameter: "+ID );
@@ -125,7 +174,7 @@ class Compilador {
     }
 
     public void validar_ID_locales(String ID) {
-        Variable _tupla = new Variable(ID, null, dir);
+        Variable _tupla = new Variable(ID, null, 0);
 
         if ( !globalVar.contains(_tupla) && !localVar.contains(_tupla) ) {
             System.err.println("ERROR: Local Variable "+ID+" not exist" );
@@ -134,7 +183,7 @@ class Compilador {
     }
 
     public void validar_ID_globales(String ID) {
-        Variable _tupla = new Variable(ID, null,dir);
+        Variable _tupla = new Variable(ID, null,0);
 
         if ( !globalVar.contains(_tupla) ) {
             System.err.println("ERROR: Global variable "+ID+" not exist" );
@@ -211,8 +260,8 @@ class Compilador {
         if( res_id != 4 ) {
             String _tvar_id = "t" + avail;
             avail++;
-            Variable _tvar = new Variable(_tvar_id, res_type, dir);
-            dir++;
+            Variable _tvar = new Variable(_tvar_id, res_type, assign_dir(res_id));
+  
 
             globalVar.add(_tvar);
             PilaO.push(_tvar.getDir());
@@ -238,8 +287,8 @@ class Compilador {
             String _tvar_id = "t" + avail;
             avail++;
             
-            Variable _tvar = new Variable(_tvar_id, cuboSemantico.getIdTipo(L_O_T), dir);
-            dir++;
+            Variable _tvar = new Variable(_tvar_id, cuboSemantico.getIdTipo(L_O_T), assign_dir(L_O_T));
+
 
             globalVar.add(_tvar);
             PilaO.push(_tvar.getDir());
@@ -254,14 +303,22 @@ class Compilador {
         }
     }
 
-    public void do_push_CTE(Object value, int type) {
-        Cte cte = new Cte(value, dir);
-
-        PilaO.push(dir);
+    public void do_push_CTE_int(int value, int type) {
+        PilaO.push(assign_dir(4));
         PilaT.push(type);
+        ctes_int.add(value);
+    }
 
-        dir++;
-        ctes.add(cte);
+    public void do_push_CTE_float(float  value, int type) {
+        PilaO.push(assign_dir(5));
+        PilaT.push(type);
+        ctes_float.add(value);
+    }
+
+    public void do_push_CTE_string(String value, int type) {
+        PilaO.push(assign_dir(6));
+        PilaT.push(type);
+        ctes_string.add(value);
     }
 
     public void add_quad_top_pila() {
@@ -316,58 +373,9 @@ class Compilador {
     }
 
     public void gen_memoria() {
-        this.memoria = new Object[dir-1];
-
-        for (Cte cte : ctes) {
-            this.memoria[cte.getDir()] = cte.getValue();
-        }
+        this.memoria = new Memoria(dir_int, dir_float, dir_string, dir_bool);
     }
 
-    public void run_VM() {
-        int it = 0;
-        while(it != dir)
-        switch (quads.get(it).getOper()) {
-            case 0:
-
-                break;
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                
-                break;
-            case 4:
-                
-                break;
-            case 5:
-                
-                break;
-            case 6:
-                
-                break;
-            case 7:
-                
-                break;
-            case 8:
-                
-                break;
-            case 9:
-                
-                break;
-            case 10:
-                
-                break;
-            case 11:
-                
-                break;
-
-            default:
-                // Bloque de código si ninguno de los casos anteriores es verdadero
-        }
-    }
 
 
 }
