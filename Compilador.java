@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 class Compilador {
@@ -21,38 +24,8 @@ class Compilador {
 
     public ArrayList<Cte> ctes = new ArrayList<>();
 
-    public Object[] memoria;
 
-    public int dir_int = 0;
-    public int dir_float= 0;
-    public int dir_string = 0;
-    public int dir_bool = 0;
-
-
-    //validar que no se pase de los rangos
-    public int assign_dir(int type) {
-        int assigned_dir;
-        switch (type) {
-            case 0:
-                assigned_dir = dir_int;
-                dir_int++;
-                return assigned_dir;
-            case 1:
-                assigned_dir = dir_float + 10000;
-                dir_float++;
-                return assigned_dir;
-            case 2:
-                assigned_dir = dir_string + 20000;
-                dir_string++;
-                return assigned_dir;
-            case 3:
-                assigned_dir = dir_bool + 30000;
-                dir_bool++;
-                return assigned_dir;
-            default:
-                throw new AssertionError();
-        }
-    }
+  
 
     public void add_DirFunc(String ID) {
         if ( dirFunc.contains(ID) ) {
@@ -255,7 +228,7 @@ class Compilador {
     }
 
     public void do_push_CTE(Object value, int type) {
-        Cte cte = new Cte(value, dir);
+        Cte cte = new Cte(type, value, dir);
 
         PilaO.push(dir);
         PilaT.push(type);
@@ -306,68 +279,35 @@ class Compilador {
 
     public void add_quad_while(int exp_type) {
         if ( !(exp_type == 3) ) {
-                System.err.println("ERROR: Type mismatch: while exprestion is not type bool: type: "+exp_type);
-            } else {
-                Quad _quad = new Quad(11, PilaO.pop(), 0, PJumps.pop());
-                quads.add(_quad);
-                quad_cont++;
-                System.out.println(_quad);
+            System.err.println("ERROR: Type mismatch: while exprestion is not type bool: type: "+exp_type);
+        } else {
+            Quad _quad = new Quad(11, PilaO.pop(), 0, PJumps.pop());
+            quads.add(_quad);
+            quad_cont++;
+            System.out.println(_quad);
+        }
+    }
+
+    public void QuadsToFile() {
+        String fileName = "cruadruplos.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(Integer.toString(dir));
+            writer.newLine();
+
+            writer.write(Integer.toString(ctes.size()));
+            writer.newLine();
+            for (Cte cte : ctes) {
+                writer.write(cte.getType()+" "+cte.getValue()+" "+cte.getDir());
+                writer.newLine();
             }
-    }
 
-    public void gen_memoria() {
-        this.memoria = new Object[dir-1];
-
-        for (Cte cte : ctes) {
-            this.memoria[cte.getDir()] = cte.getValue();
+            for (Quad quad : quads) {
+                writer.write(quad.getOper()+" "+quad.getOpdo1()+" "+quad.getOpdo2()+" "+quad.getRes());
+                writer.newLine();
+            }
+            System.out.println("Array has been written to " + fileName);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
         }
     }
-
-    public void run_VM() {
-        int it = 0;
-        while(it != dir)
-        switch (quads.get(it).getOper()) {
-            case 0:
-
-                break;
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                
-                break;
-            case 4:
-                
-                break;
-            case 5:
-                
-                break;
-            case 6:
-                
-                break;
-            case 7:
-                
-                break;
-            case 8:
-                
-                break;
-            case 9:
-                
-                break;
-            case 10:
-                
-                break;
-            case 11:
-                
-                break;
-
-            default:
-                // Bloque de código si ninguno de los casos anteriores es verdadero
-        }
-    }
-
-
 }

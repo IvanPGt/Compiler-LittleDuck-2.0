@@ -164,7 +164,7 @@ public class LittleDuckParser extends Parser {
 			body();
 			setState(88);
 			match(T__3);
-			((ProgramaContext)getInvokingContext(0)).comp.imprimir_quads();
+			((ProgramaContext)getInvokingContext(0)).comp.imprimir_quads(); ((ProgramaContext)getInvokingContext(0)).comp.QuadsToFile(); 
 			}
 		}
 		catch (RecognitionException re) {

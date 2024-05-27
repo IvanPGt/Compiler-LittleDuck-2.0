@@ -4,7 +4,8 @@ var A, B :int; F, G, H :float;
 main{
     do {
         B = 5;
-        A = B;
+        H = 10.1;
+        print("hola");
     } while (G * B > H);
 }
 end

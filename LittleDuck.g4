@@ -1,7 +1,7 @@
 grammar LittleDuck;
 
 programa locals [Compilador comp = new Compilador()]
-    :   'program' ID { $programa::comp.add_DirFunc($ID.text); } ';' vars funcs 'main' body 'end' {$programa::comp.imprimir_quads();};
+    :   'program' ID { $programa::comp.add_DirFunc($ID.text); } ';' vars funcs 'main' body 'end' {$programa::comp.imprimir_quads(); $programa::comp.QuadsToFile(); };
 vars:   md_vars
     | 
     ;
