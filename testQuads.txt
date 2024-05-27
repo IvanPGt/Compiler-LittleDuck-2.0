@@ -1,0 +1,10 @@
+program Quads;
+var A, B :int; F, G, H :float;
+
+main{
+    do {
+        B = 5;
+        A = B;
+    } while (G * B > H);
+}
+end

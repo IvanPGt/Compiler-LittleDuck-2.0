@@ -79,6 +79,10 @@ public class CuboSemantico {
         return traductorStringToId.get(tipo_s);
     }
 
+    public String getIdTipo(int id) {
+        return traductorIdToString[id];
+    }
+
     public int getOperId(String tipo_s) {
         return traductorOperToId.get(tipo_s);
     }
@@ -87,7 +91,7 @@ public class CuboSemantico {
         return traductorIdToString[cubo[op][opdo1][opdo2]];
     };
 
-    public int checkError(int op, int opdo1, int opdo2) {
+    public int getId(int op, int opdo1, int opdo2) {
         return cubo[op][opdo1][opdo2];
     }
 
