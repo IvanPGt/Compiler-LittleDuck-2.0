@@ -2,10 +2,7 @@ program Quads;
 var A, B :int; F, G, H :float;
 
 main{
-    do {
-        B = 5;
-        H = 10.1;
-        print("hola");
-    } while (G * B > H);
+    A = 2-2;
+    print(A);
 }
 end

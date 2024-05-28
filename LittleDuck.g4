@@ -19,9 +19,7 @@ list_ids_
     :   ',' list_ids
     |   
     ;
-type:   'int'
-    |   'float'
-    ;
+type:   'int'|'float';
 funcs 
     :   {$programa::comp.isLocalVar = true;} md_funcs md_funcs_ {$programa::comp.isLocalVar = false; $programa::comp.localVar.clear();}
     |   
@@ -70,11 +68,7 @@ md_exp
     }
     |
     ;
-expresion_op
-    :   '>'
-    |   '<'
-    |   '!='
-    ;
+expresion_op: '>'|'<'|'!=';
 exp
     :   termino {
         if(!$programa::comp.POper.empty()){
@@ -87,10 +81,7 @@ termino_
     :   termino_op { $programa::comp.do_push_Oper($termino_op.text); } exp
     |   
     ;
-termino_op
-    :   '+'
-    |   '-'
-    ;
+termino_op: '+'|'-';
 termino
     :   factor {
         if(!$programa::comp.POper.empty()){
@@ -103,10 +94,7 @@ factor_
     :   factor_op { $programa::comp.do_push_Oper($factor_op.text); } termino
     |
     ;
-factor_op
-    :   '*'
-    |   '/'
-    ;
+factor_op: '*'|'/';
 factor
     :   '(' { $programa::comp.POper.push(-1); } expresion ')' { $programa::comp.POper.pop(); }
     |   factor_op_ factor_cte { $programa::comp.check_negative($factor_op_.text); }
@@ -120,7 +108,7 @@ factor_cte
     |   cte
     ;
 cte
-    :   CTE_INT  { $programa::comp.do_push_CTE($CTE_INT.int, 0); }
+    :   CTE_INT  { System.out.println($CTE_INT.text); $programa::comp.do_push_CTE($CTE_INT.int, 0); }
     |   CTE_FLOAT  { $programa::comp.do_push_CTE(Float.parseFloat($CTE_FLOAT.text), 1); }
     ;
 condition locals [ int exp_type ]

@@ -298,7 +298,11 @@ class Compilador {
 
             writer.newLine();
             for (Cte cte : ctes) {
-                writer.write(cte.getType()+" "+cte.getValue()+" "+cte.getDir());
+                writer.write(Integer.toString(cte.getType()));
+                writer.newLine();
+                writer.write(cte.getValue().toString());
+                writer.newLine();
+                writer.write(Integer.toString(cte.getDir()));
                 writer.newLine();
             }
 
