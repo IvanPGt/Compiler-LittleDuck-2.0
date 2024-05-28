@@ -131,14 +131,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_programa; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterPrograma(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitPrograma(this);
-		}
 	}
 
 	public final ProgramaContext programa() throws RecognitionException {
@@ -187,14 +179,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_vars; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterVars(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitVars(this);
-		}
 	}
 
 	public final VarsContext vars() throws RecognitionException {
@@ -242,14 +226,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_vars; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_vars(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_vars(this);
-		}
 	}
 
 	public final Md_varsContext md_vars() throws RecognitionException {
@@ -292,14 +268,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_def_vars; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterDef_vars(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitDef_vars(this);
-		}
 	}
 
 	public final Def_varsContext def_vars() throws RecognitionException {
@@ -341,14 +309,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_def_vars_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterDef_vars_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitDef_vars_(this);
-		}
 	}
 
 	public final Def_vars_Context def_vars_() throws RecognitionException {
@@ -398,14 +358,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_list_ids; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterList_ids(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitList_ids(this);
-		}
 	}
 
 	public final List_idsContext list_ids() throws RecognitionException {
@@ -441,14 +393,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_list_ids_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterList_ids_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitList_ids_(this);
-		}
 	}
 
 	public final List_ids_Context list_ids_() throws RecognitionException {
@@ -493,14 +437,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_type; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitType(this);
-		}
 	}
 
 	public final TypeContext type() throws RecognitionException {
@@ -545,14 +481,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcs; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterFuncs(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitFuncs(this);
-		}
 	}
 
 	public final FuncsContext funcs() throws RecognitionException {
@@ -602,14 +530,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_funcs_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_funcs_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_funcs_(this);
-		}
 	}
 
 	public final Md_funcs_Context md_funcs_() throws RecognitionException {
@@ -661,14 +581,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_funcs; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_funcs(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_funcs(this);
-		}
 	}
 
 	public final Md_funcsContext md_funcs() throws RecognitionException {
@@ -726,14 +638,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ids_funcs; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterIds_funcs(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitIds_funcs(this);
-		}
 	}
 
 	public final Ids_funcsContext ids_funcs() throws RecognitionException {
@@ -786,14 +690,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ids_funcs_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterIds_funcs_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitIds_funcs_(this);
-		}
 	}
 
 	public final Ids_funcs_Context ids_funcs_() throws RecognitionException {
@@ -841,14 +737,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_body; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterBody(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitBody(this);
-		}
 	}
 
 	public final BodyContext body() throws RecognitionException {
@@ -888,14 +776,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_body; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_body(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_body(this);
-		}
 	}
 
 	public final Md_bodyContext md_body() throws RecognitionException {
@@ -946,14 +826,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_body_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_body_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_body_(this);
-		}
 	}
 
 	public final Md_body_Context md_body_() throws RecognitionException {
@@ -1009,14 +881,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitStatement(this);
-		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -1085,14 +949,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_assign; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterAssign(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitAssign(this);
-		}
 	}
 
 	public final AssignContext assign() throws RecognitionException {
@@ -1136,14 +992,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expresion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterExpresion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitExpresion(this);
-		}
 	}
 
 	public final ExpresionContext expresion() throws RecognitionException {
@@ -1182,14 +1030,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_exp; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_exp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_exp(this);
-		}
 	}
 
 	public final Md_expContext md_exp() throws RecognitionException {
@@ -1246,14 +1086,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expresion_op; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterExpresion_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitExpresion_op(this);
-		}
 	}
 
 	public final Expresion_opContext expresion_op() throws RecognitionException {
@@ -1298,14 +1130,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_exp; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterExp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitExp(this);
-		}
 	}
 
 	public final ExpContext exp() throws RecognitionException {
@@ -1351,14 +1175,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termino_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterTermino_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitTermino_(this);
-		}
 	}
 
 	public final Termino_Context termino_() throws RecognitionException {
@@ -1410,14 +1226,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termino_op; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterTermino_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitTermino_op(this);
-		}
 	}
 
 	public final Termino_opContext termino_op() throws RecognitionException {
@@ -1462,14 +1270,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termino; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterTermino(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitTermino(this);
-		}
 	}
 
 	public final TerminoContext termino() throws RecognitionException {
@@ -1515,14 +1315,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterFactor_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitFactor_(this);
-		}
 	}
 
 	public final Factor_Context factor_() throws RecognitionException {
@@ -1576,14 +1368,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor_op; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterFactor_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitFactor_op(this);
-		}
 	}
 
 	public final Factor_opContext factor_op() throws RecognitionException {
@@ -1632,14 +1416,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterFactor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitFactor(this);
-		}
 	}
 
 	public final FactorContext factor() throws RecognitionException {
@@ -1700,14 +1476,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor_op_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterFactor_op_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitFactor_op_(this);
-		}
 	}
 
 	public final Factor_op_Context factor_op_() throws RecognitionException {
@@ -1758,14 +1526,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor_cte; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterFactor_cte(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitFactor_cte(this);
-		}
 	}
 
 	public final Factor_cteContext factor_cte() throws RecognitionException {
@@ -1816,14 +1576,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cte; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterCte(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitCte(this);
-		}
 	}
 
 	public final CteContext cte() throws RecognitionException {
@@ -1880,14 +1632,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condition; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterCondition(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitCondition(this);
-		}
 	}
 
 	public final ConditionContext condition() throws RecognitionException {
@@ -1934,14 +1678,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condition_else; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterCondition_else(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitCondition_else(this);
-		}
 	}
 
 	public final Condition_elseContext condition_else() throws RecognitionException {
@@ -1993,14 +1729,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cicle; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterCicle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitCicle(this);
-		}
 	}
 
 	public final CicleContext cicle() throws RecognitionException {
@@ -2049,14 +1777,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_f_call; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterF_call(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitF_call(this);
-		}
 	}
 
 	public final F_callContext f_call() throws RecognitionException {
@@ -2101,14 +1821,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_f_call; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_f_call(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_f_call(this);
-		}
 	}
 
 	public final Md_f_callContext md_f_call() throws RecognitionException {
@@ -2161,14 +1873,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_f_call_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_f_call_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_f_call_(this);
-		}
 	}
 
 	public final Md_f_call_Context md_f_call_() throws RecognitionException {
@@ -2216,14 +1920,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_print; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterPrint(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitPrint(this);
-		}
 	}
 
 	public final PrintContext print() throws RecognitionException {
@@ -2269,14 +1965,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_print; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_print(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_print(this);
-		}
 	}
 
 	public final Md_printContext md_print() throws RecognitionException {
@@ -2335,14 +2023,6 @@ public class LittleDuckParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_md_print_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).enterMd_print_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LittleDuckListener ) ((LittleDuckListener)listener).exitMd_print_(this);
-		}
 	}
 
 	public final Md_print_Context md_print_() throws RecognitionException {

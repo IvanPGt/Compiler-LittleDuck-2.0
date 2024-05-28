@@ -17,7 +17,7 @@ class Compilador {
     public Stack<Integer> PilaO = new Stack<>();
     public Stack<Integer> PilaT = new Stack<>();
     public Stack<Integer> POper = new Stack<>();
-    public int dir = 0;
+    public int dir = 1; //+1 por la constante -1 en dir 0
     public int avail = 0;
 
     public Stack<Integer> PJumps = new Stack<>();
@@ -218,7 +218,7 @@ class Compilador {
             PilaO.push(_tvar.getDir());
             PilaT.push(L_O_T);
 
-            Quad _quad = new Quad(0, L_O, -1, _tvar.getDir());
+            Quad _quad = new Quad(0, L_O, 0, _tvar.getDir());
             quads.add(_quad);
             quad_cont++;
 
@@ -291,10 +291,11 @@ class Compilador {
     public void QuadsToFile() {
         String fileName = "cruadruplos.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(Integer.toString(dir));
+            writer.write(Integer.toString(dir)); 
             writer.newLine();
 
             writer.write(Integer.toString(ctes.size()));
+
             writer.newLine();
             for (Cte cte : ctes) {
                 writer.write(cte.getType()+" "+cte.getValue()+" "+cte.getDir());
