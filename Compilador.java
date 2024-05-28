@@ -265,7 +265,7 @@ class Compilador {
     }
 
     public void add_quad_else(int exp_type) {
-        if ( "bool".equals(exp_type) ) {
+        if ( exp_type == 3 ) {
 
             System.out.println("ENTRE ELSE");
             Quad _quad = new Quad(9, 0, 0, 0);

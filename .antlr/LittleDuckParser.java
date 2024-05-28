@@ -1590,7 +1590,7 @@ public class LittleDuckParser extends Parser {
 				{
 				setState(246);
 				((CteContext)_localctx).CTE_INT = match(CTE_INT);
-				 System.out.println((((CteContext)_localctx).CTE_INT!=null?((CteContext)_localctx).CTE_INT.getText():null)); ((ProgramaContext)getInvokingContext(0)).comp.do_push_CTE((((CteContext)_localctx).CTE_INT!=null?Integer.valueOf(((CteContext)_localctx).CTE_INT.getText()):0), 0); 
+				 System.out.println("es int"); ((ProgramaContext)getInvokingContext(0)).comp.do_push_CTE((((CteContext)_localctx).CTE_INT!=null?Integer.valueOf(((CteContext)_localctx).CTE_INT.getText()):0), 0); 
 				}
 				break;
 			case CTE_FLOAT:
@@ -1598,7 +1598,7 @@ public class LittleDuckParser extends Parser {
 				{
 				setState(248);
 				((CteContext)_localctx).CTE_FLOAT = match(CTE_FLOAT);
-				 ((ProgramaContext)getInvokingContext(0)).comp.do_push_CTE(Float.parseFloat((((CteContext)_localctx).CTE_FLOAT!=null?((CteContext)_localctx).CTE_FLOAT.getText():null)), 1); 
+				 System.out.println("es float"); ((ProgramaContext)getInvokingContext(0)).comp.do_push_CTE(Float.parseFloat((((CteContext)_localctx).CTE_FLOAT!=null?((CteContext)_localctx).CTE_FLOAT.getText():null)), 1); 
 				}
 				break;
 			default:

@@ -7,8 +7,6 @@ class Quad:
 
 archivo = open("cruadruplos.txt", 'r')
 
-
-
 mem_size = int(archivo.readline().strip())
         
 ctes = int(archivo.readline().strip())
@@ -40,15 +38,14 @@ for line in archivo:
     quads.append(quad)
 
 index = 0
-while index != len(quads):
-
+while index != len(quads) and index != None:
     match quads[index].oper:
             case 0:
                 memoria[quads[index].res] = memoria[quads[index].opdo1] * memoria[quads[index].opdo2]
                 index += 1
               
             case 1:
-                memoria[quads[index].res] = memoria[quads[index].opdo1] / memoria[quads[index].opdo2]
+                memoria[quads[index].res] =  memoria[quads[index].opdo2] / memoria[quads[index].opdo1]
                 index += 1
         
             case 2:
@@ -56,19 +53,20 @@ while index != len(quads):
                 index += 1
            
             case 3:
-                memoria[quads[index].res] = memoria[quads[index].opdo1] - memoria[quads[index].opdo2]
+                memoria[quads[index].res] = memoria[quads[index].opdo2] - memoria[quads[index].opdo1] 
                 index += 1
         
             case 4:
-                memoria[quads[index].res] = memoria[quads[index].opdo1] < memoria[quads[index].opdo2]
+                memoria[quads[index].res] = memoria[quads[index].opdo2] < memoria[quads[index].opdo1] 
                 index += 1
          
             case 5:
-                memoria[quads[index].res] = memoria[quads[index].opdo1] > memoria[quads[index].opdo2]
+                memoria[quads[index].res] = memoria[quads[index].opdo2] > memoria[quads[index].opdo1]
                 index += 1
           
             case 6:
                 memoria[quads[index].res] = memoria[quads[index].opdo1] != memoria[quads[index].opdo2]
+
                 index += 1
             
             case 7:
@@ -76,21 +74,21 @@ while index != len(quads):
                 index += 1
            
             case 8:
-                print(memoria[quads[index].res])
+                print(memoria[quads[index].res], end="")
                 index += 1
           
             case 9:
-                index = memoria[quads[index].res]
+                index = quads[index].res
               
             case 10:
-                if not memoria[quads[index].res]:
-                    index = memoria[quads[index].res]
+                if not memoria[quads[index].opdo1]:
+                    index = quads[index].res
                 else:
                     index += 1
              
             case 11:
-                if memoria[quads[index].res]:
-                    index = memoria[quads[index].res]
+                if memoria[quads[index].opdo1]:
+                    index = quads[index].res
                 else:
                     index += 1
       

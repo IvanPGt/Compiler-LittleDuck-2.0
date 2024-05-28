@@ -94,7 +94,7 @@ factor_
     :   factor_op { $programa::comp.do_push_Oper($factor_op.text); } termino
     |
     ;
-factor_op: '*'|'/';
+factor_op:   '*'|'/';
 factor
     :   '(' { $programa::comp.POper.push(-1); } expresion ')' { $programa::comp.POper.pop(); }
     |   factor_op_ factor_cte { $programa::comp.check_negative($factor_op_.text); }
@@ -108,8 +108,8 @@ factor_cte
     |   cte
     ;
 cte
-    :   CTE_INT  { System.out.println($CTE_INT.text); $programa::comp.do_push_CTE($CTE_INT.int, 0); }
-    |   CTE_FLOAT  { $programa::comp.do_push_CTE(Float.parseFloat($CTE_FLOAT.text), 1); }
+    :   CTE_INT  { System.out.println("es int"); $programa::comp.do_push_CTE($CTE_INT.int, 0); }
+    |   CTE_FLOAT  { System.out.println("es float"); $programa::comp.do_push_CTE(Float.parseFloat($CTE_FLOAT.text), 1); }
     ;
 condition locals [ int exp_type ]
     :   'if' '(' expresion ')' {$condition::exp_type = $programa::comp.PilaT.pop(); $programa::comp.add_quad_if($condition::exp_type); } body condition_else ';' { $programa::comp.fill_quad_if($condition::exp_type); } ;
@@ -141,7 +141,7 @@ md_print_
     ;
 ID      : [a-zA-Z_]+[a-zA-Z0-9]* ;
 CTE_INT     : [0-9]+ ; 
-CTE_FLOAT   : [0-9]+(.[0-9]+)?;
+CTE_FLOAT   : [0-9]+('.'[0-9]+)?;
 CTE_STRING  : '"'~["]*'"';
 NEWLINE : [\r\n\t]+ ->skip;
 WHITESPACE : ' ' ->skip;

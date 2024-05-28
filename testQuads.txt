@@ -1,8 +1,7 @@
-program Quads;
-var A, B :int; F, G, H :float;
+program test;
+var fib_series, i, n, first, second, next:int;
 
-main{
-    A = 2-2;
-    print(A);
+main {
+    print(4-2);
 }
 end
