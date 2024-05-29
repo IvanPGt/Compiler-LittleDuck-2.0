@@ -108,8 +108,8 @@ factor_cte
     |   cte
     ;
 cte
-    :   CTE_INT  { System.out.println("es int"); $programa::comp.do_push_CTE($CTE_INT.int, 0); }
-    |   CTE_FLOAT  { System.out.println("es float"); $programa::comp.do_push_CTE(Float.parseFloat($CTE_FLOAT.text), 1); }
+    :   CTE_INT  { $programa::comp.do_push_CTE($CTE_INT.int, 0); }
+    |   CTE_FLOAT  { $programa::comp.do_push_CTE(Float.parseFloat($CTE_FLOAT.text), 1); }
     ;
 condition locals [ int exp_type ]
     :   'if' '(' expresion ')' {$condition::exp_type = $programa::comp.PilaT.pop(); $programa::comp.add_quad_if($condition::exp_type); } body condition_else ';' { $programa::comp.fill_quad_if($condition::exp_type); } ;

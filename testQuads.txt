@@ -1,7 +1,13 @@
-program test;
-var fib_series, i, n, first, second, next:int;
+program VM;
+var A, B: int; 
 
 main {
-    print(4-2);
+    A = 10;
+    B = 0;
+    do {
+        B = B + 1;
+        print("B es ", B, " ");
+    } while (B != A);
 }
+
 end

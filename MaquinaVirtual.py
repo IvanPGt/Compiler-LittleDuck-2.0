@@ -91,7 +91,5 @@ while index != len(quads) and index != None:
                     index = quads[index].res
                 else:
                     index += 1
-      
-            
             case _:
                 break #default
